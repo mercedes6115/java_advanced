@@ -1,0 +1,38 @@
+
+
+내장 객체(implicit Object)
+
+내쟁 객체: JSP에 의해서 미리 생성된 객체로 JSP내에서 선언없이 사용 가능한 객체 (java 의 String)
+
+내장 객체의 종류:
+
+1.request : 주로 URL에 포함된 사용자의 입력값을 추출하는 용도로 사용 
+
+2.response : 주로 페이지 redirecting하는 용도로 많이 사용 
+
+3.session : 주로 브라우저와의 연결 정보를 유지, 접속을 유지 (기본시간 : 30분)
+
+
+request 객체: 
+  
+accept:image/gif, image/jpeg, image/pjpeg, application/x-ms-application, application/xaml+xml, application/x-ms-xbap, */*
+accept-language:ko
+cache-control:no-cache
+ua-cpu:AMD64
+accept-encoding:gzip, deflate
+user-agent:Mozilla/5.0 (Windows NT 6.2; Win64; x64; Trident/7.0; rv:11.0) like Gecko
+host:localhost:8080
+connection:Keep-Alive
+cookie:JSESSIONID=157D5C11E20D4740C39A375501E2F9AB
+
+
+
+response 객체: 쓰는 상황이 제한적이다 
+
+
+
+session 객체: 사용자가 로그인 후 로그인 상태를 유지할 필요가 있다.
+서버에서 데이터를 유지한다 (cookie: 유저측에서 데이터를 유지한다)
+
+
+
