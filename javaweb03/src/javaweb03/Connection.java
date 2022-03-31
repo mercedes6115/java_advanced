@@ -4,13 +4,14 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Scanner; public class Connection {
+import java.util.Scanner; 
+public class Connection {
 public static void main(String[] args) throws ClassNotFoundException, SQLException {
 	int cnt=1;
 	String dept=null;
 	try {
 		Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-		String connectionUrl = "jdbc:sqlserver://localhost:49674;database=large;integratedSecurity=true";
+		String connectionUrl = "jdbc:sqlserver://localhost:52165;database=large;integratedSecurity=true";
 		java.sql.Connection conn = DriverManager.getConnection(connectionUrl); Statement stmt = conn.createStatement();
 		System.out.println("MS-SQL 서버 접속에 성공하였습니다.1"); 
 		Scanner sc = new Scanner(System.in);
