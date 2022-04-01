@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>교수 정보 입력</title>
+</head>
+<body>
+	<form action="univ_instructor_insert.jsp" method="post">
+		<table>
+			<caption>교수 정보 입력</caption>
+			<tr>
+				<th>ID</th>
+				<td><input type="text" name="ID" required autofocus>
+			</tr>
+			<tr>
+				<th>연봉</th>
+				<td><input type="text" name="salary" required>
+			</tr>
+			<tr>
+				<th>이름</th>
+				<td><input type="text" name="name" required>
+			</tr>
+			<tr>
+				<th>전공</th>
+				<td><input type="text" name="dept" required>
+			</tr>
+			<tr>
+				<td colspan="2" style="text-align: center;"><input
+					type="submit" value="전송"></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
