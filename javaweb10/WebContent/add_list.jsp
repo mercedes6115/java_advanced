@@ -6,7 +6,7 @@
 // JDBC 드라이버 로딩
 	Class.forName("com.mysql.jdbc.Driver");
 // DB연결
-	String url = "jdbc:mysql://localhost:3306/school";
+	String url = "jdbc:mysql://localhost:3306/university";
 	String id = "root";
 	String pw = "a489348a!";
 	
@@ -18,13 +18,19 @@
 // 테이블에 데이터 넣는 sql
 	String studentID = request.getParameter("studentID");
 	String name = request.getParameter("name");
+	String gender = request.getParameter("gender");
+	String year = request.getParameter("year");
 	String dept = request.getParameter("dept");
+	String address = request.getParameter("address");
 	
-	String sql = "INSERT INTO emp VALUES(?,?,?,?,?,?)";
+	String sql = "INSERT INTO student VALUES(?,?,?,?,?,?)";
 	pstmt = conn.prepareStatement(sql);
 	pstmt.setString(1, studentID);
 	pstmt.setString(2, name);
-	pstmt.setString(3, dept);
+	pstmt.setString(3, gender);
+	pstmt.setString(4, year);
+	pstmt.setString(5, dept);
+	pstmt.setString(6, address);
 
 	pstmt.executeUpdate(); 
 

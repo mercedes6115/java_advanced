@@ -13,7 +13,7 @@
 
 
 
-<div class = "container bg-warning shadow mx-auto mt-5 p-5 w-75">
+<div class = "container bg-light shadow mx-auto mt-5 p-5 w-75">
 
    <form action="add_list.jsp" method="POST">
 
