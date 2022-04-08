@@ -18,16 +18,13 @@
 Connection conn=null;
 PreparedStatement pstmt = null;
 ResultSet rset = null;
-
 conn = DBconnectClose.getConnection();
-
-
-	%>	
+%>	
 	<%@ include file ="/common/jsp_board_dbset_iu.inc" %>
 	<% 
 	String sql ="INSERT INTO board VALUES(?,?,?,?,?)";
 	pstmt = conn.prepareStatement(sql);
-	pstmt.setString(1, board_id);
+	pstmt.setInt(1,0);
 	pstmt.setString(2, board_name);
 	pstmt.setString(3, board_title);
 	pstmt.setString(4, board_content);

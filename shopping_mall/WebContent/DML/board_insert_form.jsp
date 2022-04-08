@@ -9,12 +9,7 @@
 <body>
 <form method="POST" action="board_insert_db.jsp">
 		<table>
-			<caption>게시판 입력</caption>
-
-			<tr>
-				<th>&nbsp;아이디&nbsp;</th>
-				<td><input type="text" name="board_id" required></td>
-			</tr>		
+			<caption>게시판 입력</caption>		
 			<tr>
 				<th>&nbsp;이름&nbsp;</th>
 				<td><input type="text" name="board_name" required></td>
