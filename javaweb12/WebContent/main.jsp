@@ -40,5 +40,6 @@ for (FeedDTO feed: feeds) {
 
 
 </table>
+file: <input type="file" name="file"><br>
 </body>
 </html>
