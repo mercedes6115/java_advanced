@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@page import="DAO.*" %>
+<%@page import="DTO.*" %>
+<%@page import="java.util.ArrayList" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,6 +23,22 @@
 </form>
 
 
+<table align=center>
+<tr><td colspan=2>톡보기</td></tr>
+<% 
+ArrayList<FeedDTO> feeds = (new FeedDAO()).getList();
+for (FeedDTO feed: feeds) {
+%>
+<tr><td colspan=2><hr></td></tr>
+<tr><td><%=feed.getId()%></td>
+	<td><%=feed.getTs()%></td></tr>
+<tr><td colspan=2><hr><%=feed.getContent() %></td></tr>
 
+<% 
+}
+%>
+
+
+</table>
 </body>
 </html>
