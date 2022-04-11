@@ -9,8 +9,5 @@
 		password="a489348a!"
 		maxTotal="16" 
 		maxIdle="4"
-		maxWaitMillis="-1" />
-		
-		
-		
+		maxWaitMillis="-1" />	
 </Context>
