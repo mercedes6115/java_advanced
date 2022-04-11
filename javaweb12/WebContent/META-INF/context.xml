@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+	<Resource name="jdbc/grouptalk"
+		auth ="Container"
+		type="javax.sql.DataSource"
+		driverClassName ="com.mysql.jdbc.Driver"
+		url="jdbc:mysql://localhost:3306/grouptalk?serverTimezone=UTC"
+		username="root"
+		password="a489348a!"
+		maxTotal="16" 
+		maxIdle="4"
+		maxWaitMillis="-1" />
+		
+		
+		
+</Context>
