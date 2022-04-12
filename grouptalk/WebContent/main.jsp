@@ -18,13 +18,12 @@
 <div class = "container bg-light shadow mx-auto mt-5 p-5 w-75">
 <form action = "feedadd.jsp" method="post" enctype="multipart/form-data">
 
-
 <table class="table table-dark table-striped" align=center>
 <tr><td colspan=2 align=center height =40><b>톡작성</b></td></tr>
 
-<tr><td align =center>아이디</td>
+<tr><td align = center>아이디</td>
 	<td><input type ="text" name="id" placeholder="글작성자 아이디" required></td></tr>
-<tr><td align =center>글작성</td>
+<tr><td align = center>글작성</td>
 	<td><textarea name="content" rows =3 cols=20></textarea></td></tr>
 	<tr><td align=center>이미지</td>
 
