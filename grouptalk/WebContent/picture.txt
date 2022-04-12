@@ -1,0 +1,11 @@
+사진 업로드 
+
+1. 사진 항목 추가
+
+2. 촘 액션에 enctype추가 
+<form action = "feedadd.jsp" method="post" enctype="multipart/form-data">
+
+여기까지 테스트 하면 실제 넘어가는 값이 확인이 안된다 
+개별적으로 넘어가는 값이 없을뿐 모든 값은 뭉쳐서 넘어가게된다 
+따라서 DB에 넣기 위해서 각각 분리 추출해줘야 한다
+라이브러리를 사용해서 추출 가능 

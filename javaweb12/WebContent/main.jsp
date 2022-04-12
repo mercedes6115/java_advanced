@@ -18,6 +18,7 @@
 <tr><td align =right>글작성</td>
 	<td><textarea name="content" rows =3 cols=20></textarea></td></tr>	
 <tr><td colspan=2 align=center height =40><input type="submit" value="등록"></td></tr>
+
 	
 </table>
 </form>
@@ -40,6 +41,7 @@ for (FeedDTO feed: feeds) {
 
 
 </table>
-file: <input type="file" name="file"><br>
+
+
 </body>
 </html>
