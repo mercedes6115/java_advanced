@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 import javax.naming.NamingException;
@@ -35,6 +36,30 @@ public class BoardDAO {
 			if(conn != null) conn.close();
 			if(rset != null) rset.close();
 		}
+	}
+
+	public boolean insert(String btitle,String bcon,String buser) throws NamingException, SQLException{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset =null;
+		
+		try {
+			String sql = "INSERT INTO board(bid,btitle,bcon,buser,bdate) VALUES(?,?,?,?,?)";		
+			conn = ConnectionPool.get();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, null);
+			pstmt.setString(2, btitle);
+			pstmt.setString(3, bcon);
+			pstmt.setString(4, buser);
+			pstmt.setString(5, LocalDate.now().toString());
+			
+			int count = pstmt.executeUpdate();
+			return (count >0) ? true : false;
+		}finally {
+			if(pstmt != null) pstmt.close();
+			if(conn != null) conn.close();
+		}
+		
 	}
 }
 	

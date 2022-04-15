@@ -25,7 +25,6 @@
   </div>
 </nav>
 
-
 <div id="map" style="width:50%;height:250px;"></div>
 <p><em>찾아오시는길</em></p> 
 <p id="result"></p>
@@ -48,3 +47,4 @@ kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
     resultDiv.innerHTML = message;   
 });
 </script>	
+</table>

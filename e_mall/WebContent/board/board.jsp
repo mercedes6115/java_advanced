@@ -48,7 +48,7 @@
       <td><%=board.getBtitle() %></td>
       <td><%=board.getBcon()%></td>
       <td><%=board.getBuser()%></td>
-      <td><a href="product/productdetail.jsp?pid=<%=board.getBcon()%>" class ="btn btn-info" role="button">상세정보</a></td>
+      <td><a href="../board/boarddetail.jsp?bcon=<%=board.getBcon()%>" class ="btn btn-info" role="button">상세정보</a></td>
     </tr>
 </tbody>			
 			<%
@@ -57,7 +57,7 @@
 			</table>
 		
 		<hr>
-
+<a href="../board/board_write.jsp" class ="btn btn-info" role="button">글쓰기</a>
 
 
 	

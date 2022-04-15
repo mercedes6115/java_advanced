@@ -19,9 +19,8 @@ String uaddr =request.getParameter("uaddr");
 
 
 
- 
+
 UserDAO dao = new UserDAO();
 dao.insert(uid,upw,uname,ugender,ubirth,uemail,uphone,uaddr); 
-
-
+ 
 %>
