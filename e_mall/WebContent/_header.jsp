@@ -1,5 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<style>@font-face {
+    font-family: 'WandohopeB';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/WandohopeB.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+body{
+font-family:'WandohopeB';
+padding=bottom:70px;
+}
+</style>
 
 <nav class="navbar navbar-expand-lg navbar-info bg-info aria-label=Tenth navbar">
   <div class="container-fluid">
@@ -42,6 +53,7 @@
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <li><a class="dropdown-item" href="#">공지사항</a></li>
             <li><a class="dropdown-item" href="#">질문답변</a></li>
+            <li><a class="dropdown-item" href="board/board.jsp">게시판가기</a></li>
           </ul>
         </li>
       </ul>
