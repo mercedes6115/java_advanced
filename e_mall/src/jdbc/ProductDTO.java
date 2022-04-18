@@ -34,6 +34,36 @@ public class ProductDTO {
 		return pimgs;
 	}
 	
+
+	public void setPid(String pid) {
+		this.pid = pid;
+	}
+	public void setPname(String pname) {
+		this.pname = pname;
+	}
+	public void setPprice(String pprice) {
+		this.pprice = pprice;
+	}
+	public void setPdesc(String pdesc) {
+		this.pdesc = pdesc;
+	}
+	public void setPmanu(String pmanu) {
+		this.pmanu = pmanu;
+	}
+	public void setPcate(String pcate) {
+		this.pcate = pcate;
+	}
+	public void setPcondi(String pcondi) {
+		this.pcondi = pcondi;
+	}
+	public void setPimgs(String pimgs) {
+		this.pimgs = pimgs;
+	}
+	
+	public ProductDTO() {
+
+	}
+	
 	public ProductDTO(String pid, String pname, String pprice, String pdesc, String pmanu, String pcate,
 			String pcondi, String pimgs) {
 		super();

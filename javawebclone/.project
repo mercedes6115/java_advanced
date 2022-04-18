@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>javaweb11</name>
+	<name>javawebclone</name>
 	<comment></comment>
 	<projects>
+		<project>mysql-connector-java-8.0.28</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
