@@ -24,8 +24,9 @@
     </div>
   </div>
 </nav>
-
+<div align="center">
 <div id="map" style="width:50%;height:250px;"></div>
+</div>
 <p><em>찾아오시는길</em></p> 
 <p id="result"></p>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=35966c9a479a585c8f16bf626d40ace1"></script>

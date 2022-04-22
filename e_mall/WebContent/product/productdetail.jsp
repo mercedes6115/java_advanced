@@ -24,7 +24,7 @@
 			String pid = request.getParameter("pid");
 			ProductDTO product =(new ProductDAO()).getDetail(pid);
 			String img = product.getPimgs();
-			String imgstr = "<img src='/images/" + img +"'  width=340 height=300 positon:center>";
+			String imgstr = "<img src='../images/" + img +"'  width=340 height=300 positon:center>";
 		%>
 <figure class="figure-center">
   <img src="<%=imgstr %>" class="figure-img img-fluid rounded" style="width: 30% center" alt="...">

@@ -9,9 +9,6 @@ String btitle =request.getParameter("btitle");
 String buser = (String)session.getAttribute("id");
 
 
-
-
-
  
 BoardDAO dao = new BoardDAO();
 dao.insert(btitle,bcon,buser); 

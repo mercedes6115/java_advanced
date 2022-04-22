@@ -38,13 +38,13 @@ public class BoardDAO {
 		}
 	}
 
-	public boolean insert(String btitle,String bcon,String buser) throws NamingException, SQLException{
+	public boolean insert(String bid,String btitle,String bcon,String buser,String bdate,String bimg) throws NamingException, SQLException{
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset =null;
 		
 		try {
-			String sql = "INSERT INTO board(bid,btitle,bcon,buser,bdate) VALUES(?,?,?,?,?)";		
+			String sql = "INSERT INTO board(bid,btitle,bcon,buser,bdate,bimg) VALUES(?,?,?,?,?,?)";		
 			conn = ConnectionPool.get();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, null);
@@ -52,6 +52,7 @@ public class BoardDAO {
 			pstmt.setString(3, bcon);
 			pstmt.setString(4, buser);
 			pstmt.setString(5, LocalDate.now().toString());
+			pstmt.setString(6, bimg);
 			
 			int count = pstmt.executeUpdate();
 			return (count >0) ? true : false;

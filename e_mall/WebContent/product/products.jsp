@@ -12,22 +12,22 @@
 <body>
 
 <h1>상품 목록</h1>
-<%
+<%-- <%
 	ArrayList<ProductDTO> listOdProducts = productDAO.getAllProducts();
-%>
-
+%> --%>
+<%-- 
 <%
 	for (int i=0; i< listOdProducts.size(); i++){
 		ProductDTO product = listOdProducts.get(i);
 		
-	}
+	
 %>
 
 <%=product.getPname() %>
 <%=product.getPdesc() %>
 <%=product.getPprice() %>원
 <%
-}
-%>
+} --%>
+<!-- %> -->
 </body>
 </html>

@@ -9,10 +9,7 @@ import javax.naming.NamingException;
 import util.ConnectionPool;
 
 public class ProductDAO {
-	public ArrayList<ProductDTO> getAllProducts(){
-		
-		return listOdProducts;
-	}
+
 	
 	
 	public ArrayList<ProductDTO> getList() throws NamingException,SQLException{
