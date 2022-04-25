@@ -20,19 +20,19 @@ public class BoardDAO {
 		ResultSet rset =null;
 		
 		try {
-			String sql="SELECT * FROM board";
+			String sql="SELECT * FROM freeboard";
 			conn = ConnectionPool.get();
 			pstmt = conn.prepareStatement(sql);
 			rset = pstmt.executeQuery();
 			
 			ArrayList<BoardDTO> boards = new ArrayList<BoardDTO>();
 			while(rset.next()) {
-				boards.add(new BoardDTO(rset.getString("bid"),
-									  rset.getString("btitle"),
-									  rset.getString("bcon"),
-									  rset.getString("buser"),
-									  rset.getString("bdate"),
-									  rset.getString("bimg")));
+				boards.add(new BoardDTO(rset.getString("fid"),
+									  rset.getString("ftitle"),
+									  rset.getString("fcon"),
+									  rset.getString("fuser"),
+									  rset.getString("fdate"),
+									  rset.getString("fimg")));
 			}
 			return boards;
 			
@@ -43,20 +43,20 @@ public class BoardDAO {
 		}
 	}
 	
-	public boolean insert(String bid,String btitle,String bcon,String buser,String bdate,String bimg) throws NamingException, SQLException{
+	public boolean insert(String fid,String ftitle,String fcon,String fuser,String fdate,String fimg) throws NamingException, SQLException{
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		
 		try {
-			String sql = "INSERT INTO board(bid,btitle,bcon,buser,bdate,bimg) VALUES(?,?,?,?,?,?)";		
+			String sql = "INSERT INTO freeboard(fid,ftitle,fcon,fuser,fdate,fimg) VALUES(?,?,?,?,?,?)";		
 			conn = ConnectionPool.get();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, null);
-			pstmt.setString(2, btitle);
-			pstmt.setString(3, bcon);
-			pstmt.setString(4, buser);
+			pstmt.setString(2, ftitle);
+			pstmt.setString(3, fcon);
+			pstmt.setString(4, fuser);
 			pstmt.setString(5, LocalDate.now().toString());
-			pstmt.setString(6, bimg);
+			pstmt.setString(6, fimg);
 			
 			int count = pstmt.executeUpdate();
 			return (count >0) ? true : false;
@@ -67,18 +67,18 @@ public class BoardDAO {
 		
 	}
 
-	public BoardDTO getDetail(String bid) throws NamingException,SQLException{
+	public BoardDTO getDetail(String fcon) throws NamingException,SQLException{
 
 		Connection conn=null;
 		PreparedStatement pstmt =null;
 		ResultSet rset =null;
 		
 		try {
-			String sql="SELECT * FROM board WHERE bid = ?";	
+			String sql="SELECT * FROM freeboard WHERE fcon = ?";	
 			conn = ConnectionPool.get();
 
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, bid);
+			pstmt.setString(1, fcon);
 			rset = pstmt.executeQuery();
 			rset.next();
 			String id = rset.getString(1);
@@ -106,7 +106,7 @@ public class BoardDAO {
 		ResultSet rset =null;
 		
 		try {
-			String sql="SELECT * FROM board  ORDER BY bid desc limit ?,?";
+			String sql="SELECT * FROM freeboard  ORDER BY fid desc limit ?,?";
 			conn = ConnectionPool.get();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, startRow-1);
@@ -114,12 +114,12 @@ public class BoardDAO {
 			rset = pstmt.executeQuery();
 			ArrayList<BoardDTO> boards = new ArrayList<BoardDTO>();
 			while(rset.next()) {
-				boards.add(new BoardDTO(rset.getString("bid"),
-									  rset.getString("btitle"),
-									  rset.getString("bcon"),
-									  rset.getString("buser"),
-									  rset.getString("bdate"),
-									  rset.getString("bimg")));
+				boards.add(new BoardDTO(rset.getString("fid"),
+									  rset.getString("ftitle"),
+									  rset.getString("fcon"),
+									  rset.getString("fuser"),
+									  rset.getString("fdate"),
+									  rset.getString("fimg")));
 			}
 			return boards;
 			

@@ -66,6 +66,70 @@ public class OrderDAO {
 		}
 	}
 	
+	public ArrayList<OrderDTO> getStatus(String status) throws NamingException,SQLException{
+		Connection conn=null;
+		PreparedStatement pstmt =null;
+		ResultSet rset =null;
+		
+		try {
+			String sql="SELECT * FROM orders WHERE ostatus=?";
+			conn = ConnectionPool.get();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, status);
+			rset = pstmt.executeQuery();
+			
+			ArrayList<OrderDTO> orders = new ArrayList<OrderDTO>();
+			while(rset.next()) {
+				orders.add(new OrderDTO(rset.getString("oid"),
+									  rset.getString("opid"),
+									  rset.getString("ouid"),
+									  rset.getString("opname"),
+									  rset.getString("oprice"),
+									  rset.getString("ostatus"),
+									  rset.getString("odate"),
+									  rset.getString("ograde"),
+									  rset.getString("ocomm")));
+			}
+			return orders;
+			
+		}finally {	
+			if(pstmt != null) pstmt.close();
+			if(conn != null) conn.close();
+			if(rset != null) rset.close();
+		}
+	}
+	public ArrayList<OrderDTO> getorderid(String ouid) throws NamingException,SQLException{
+		Connection conn=null;
+		PreparedStatement pstmt =null;
+		ResultSet rset =null;
+		
+		try {
+			String sql="SELECT * FROM orders WHERE ouid=?";
+			conn = ConnectionPool.get();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, ouid);
+			rset = pstmt.executeQuery();
+			
+			ArrayList<OrderDTO> orders = new ArrayList<OrderDTO>();
+			while(rset.next()) {
+				orders.add(new OrderDTO(rset.getString("oid"),
+									  rset.getString("opid"),
+									  rset.getString("ouid"),
+									  rset.getString("opname"),
+									  rset.getString("oprice"),
+									  rset.getString("ostatus"),
+									  rset.getString("odate"),
+									  rset.getString("ograde"),
+									  rset.getString("ocomm")));
+			}
+			return orders;
+			
+		}finally {	
+			if(pstmt != null) pstmt.close();
+			if(conn != null) conn.close();
+			if(rset != null) rset.close();
+		}
+	}	
 	
 	
 	

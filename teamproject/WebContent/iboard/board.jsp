@@ -17,7 +17,7 @@
 <%@ include file = "/_header.jsp" %>
 <%  ArrayList<BoardDTO> boardss =(new BoardDAO()).getList();
 	int cnt=boardss.size();//총게시물수
-	int pageSize=5;
+	int pageSize=10;
 
 	String pageNum = request.getParameter("pageNum");	
 	if(pageNum == null){
@@ -43,21 +43,20 @@
 		<% 
 		ArrayList<BoardDTO> boards =(new BoardDAO()).getpageList(startRow,pageSize);
 			for(BoardDTO board : boards){
-				String img = board.getBimg(), imgstr=null;
+				String img = board.getFimg(), imgstr=null;
 				if(img != null){
-					imgstr = "<img src='../images/" + img +"'  width=140 height=100 positon:center>";
+					imgstr = "<img src='/images/" + img +"'  width=140 height=100 positon:center>";
 				}else{
 					imgstr=null;
 				}
 		%>
     <tr>
-      <th scope="row"><%= board.getBid()%></th>
-      <td><%= board.getBtitle()%></td>
-      <td><%= board.getBcon()%></td>
-      <td><%= board.getBuser()%></td>
-      <td><%= board.getBdate()%></td>
-      <td><%= imgstr %></td>
-      <img src='abc.jpg' onerror="this.style.display='none'" alt='' />
+      <th scope="row"><%= board.getFid()%></th>
+      <td><%= board.getFtitle()%></td>
+      <td><a href="boarddetails.jsp?fcon=<%=board.getFcon()%>"><%= board.getFcon()%></td>
+      <td><%= board.getFuser()%></td>
+      <td><%= board.getFdate()%></td>
+      <td></td>
     </tr>
 			<%
 			}
@@ -69,7 +68,7 @@
 <div id="page_control" align="center">
 <%if(cnt != 0){
 	int pageCount = cnt / pageSize + (cnt%pageSize == 0?0:1);
-	int pageBlock = 5;
+	int pageBlock = 7;
 	int startPage = ((currentPage-1)/pageBlock)*pageBlock+1;
 	int endPage = startPage + pageBlock-1;
 	if(endPage>pageCount){
@@ -94,9 +93,10 @@
 </div>
   <a href="boardadd.jsp">글쓰기</a>
 </div>
-<%@ include file = "/_footer.jsp" %>
+
 
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
+<%@ include file = "/_footer.jsp" %>
 </html>

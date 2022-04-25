@@ -5,14 +5,16 @@
 <%@ page import = "org.apache.commons.fileupload.servlet.*" %>
 <%@ page import = "java.util.*" %>
 <%@ page import = "resume.*" %>
+<%@ page import = "jobboard.*" %>
 <%@ page import = "util.FileUtil" %>
 <%
 request.setCharacterEncoding("utf-8");
 
 
-String user = null;
-String title = null;
-String ufilename = null;
+String juser = null;
+String jtitle = null;
+String jfile = null;
+String jcon = null;
 byte[] ufile =null; // 실제 이미지 파일 
 
 ServletFileUpload sfu = new ServletFileUpload(new DiskFileItemFactory());
@@ -29,26 +31,31 @@ while(iter.hasNext()){ // 요소가 있으면 계속 반복 없으면 종료
 	if(item.isFormField()){ // 이름과 값형태 즉 map형태로 구성이 되있는지 확인 넘겨준 값들에서 맵형태면 원하는 값들이 뭉쳐있는것
 		//  텍스트 추출
 		String value = item.getString("utf-8");
-		if(name.equals("user")) user = value;
-		else if(name.equals("title")) title = value;
+		if(name.equals("juser")) juser = value;
+		else if(name.equals("jtitle")) jtitle = value;
+		else if(name.equals("jcon")) jcon = value;
 	}else{
-		if(name.equals("ufilename")) {
-			ufilename = item.getName();  // 사진이름
+		if(name.equals("jfile")) {
+			jfile = item.getName();  // 사진이름
 			ufile = item.get();		 // 사진내용 
 			String root = application.getRealPath(java.io.File.separator);
-			FileUtil.saveResume(root, ufilename, ufile);
+			FileUtil.saveResume(root, jfile, ufile);
 		}
 	}
 }
+JobDAO dao = new JobDAO();
+dao.insert(null, juser, jtitle,null,jfile,jcon);
 %>
 <br>
 <br>
 <br>
 
 
+
 작성한 이력서 다운받으러 가기<br>
-작성자:<%=user %><br>
-제목:<%=title %><br>
-이력서 파일 이름:<%=ufilename %><br>
-<a href="resume_check.jsp?ufilename=<%=ufilename%>">이력서 확인하기</a>
+작성자:<%=juser %><br>
+제목:<%=jtitle %><br>
+이력서 파일 이름:<%=jfile %><br>
+<a href="resume_check.jsp?ufilename=<%=jfile%>">이력서 확인하기</a>
+<a href="jobboard.jsp?ufilename=<%=jfile%>&user=<%=juser%>&title=<%=jtitle%>">이력서 게시판가기</a>
 </form>

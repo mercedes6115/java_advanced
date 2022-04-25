@@ -1,0 +1,123 @@
+deletecheck 삭제전 정말 삭제할건지 물어보는 페이지
+
+managemain 관리자 메인페이지
+
+manageuser 관리자가 유저리스트를 볼 수 있는 페이지
+
+multidel 체크박스를 체크한 유저를 삭제하는 페이지
+
+userdeletedb 실제 db에서 유저를 삭제하는 페이지
+
+
+UserDAO에 추가된 메서드
+-multiDelete (여러개 삭하는 메서드)
+public int multiDelete(String[] uids) throws NamingException, SQLException {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int result = 0;
+		int[] cnt = null;
+		
+		try {
+			String sql = "DELETE FROM user WHERE uid=?";
+			conn = ConnectionPool.get();
+			
+			pstmt = conn.prepareStatement(sql);
+			for (int i = 0; i < uids.length; i++) {
+				pstmt.setString(1, uids[i]);
+				pstmt.addBatch();
+			}
+			cnt = pstmt.executeBatch();
+			
+			for (int i = 0; i < cnt.length; i++) {
+				if(cnt[i] == -2) {
+					result++;
+				}
+			}
+			
+			if(uids.length == result) {
+				conn.commit();
+			}else {
+				conn.rollback();
+			}
+		} finally {
+			
+			if(pstmt != null) pstmt.close();
+			if(conn != null) conn.close();
+		}
+		return result;
+	}
+
+
+-delete (한개만 삭제하는 메서드)
+public int delete(String uid) throws NamingException, SQLException{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			String sql = "DELETE FROM user WHERE uid=?";
+			conn = ConnectionPool.get();
+			pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, uid);
+			int result = pstmt.executeUpdate();
+			
+			return result;			
+			
+		} finally {
+			if(pstmt != null) pstmt.close();
+			if(conn != null) conn.close();
+		}
+		
+	}
+
+
+
+
+BoardDAO에 추가된 메서드
+- getTodayPost (오늘 작성된 게시글을 가져오는 메서드, 관리자페이지에 보이게함)
+
+public int getTodayPost(String bdate) throws NamingException, SQLException {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int result = 0;
+		try {
+			String sql = "SELECT COUNT(*) FROM freeboard WHERE bdate=?";
+			conn = ConnectionPool.get();
+			pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, bdate);
+			rs = pstmt.executeQuery();
+			
+			rs.next();
+			result = rs.getInt(1);
+	
+
+		} finally {
+			if(rs != null)
+				rs.close();
+			if (pstmt != null)
+				pstmt.close();
+			if (conn != null)
+				conn.close();
+		}
+		
+		return result;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

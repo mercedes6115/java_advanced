@@ -13,12 +13,18 @@
 	paddig-bottom: 70px;
 }
 
-
-
 .dropdown:hover .dropdown-menu {
     display: block;
     margin-top: 0;
 } 
+
+ a:link {
+ 	text-decoration:none !important;
+ }
+ 
+ a:hover {
+ 	color: red !important;
+ }
 
 </style>
 
@@ -37,7 +43,7 @@
 
       <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
         <li><a href="#" class="nav-link px-2 link-dark">공지사항</a></li>
-        <li><a href="../iboard/board.jsp" class="nav-link px-2 link-dark">공유게시판</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">공유게시판</a></li>
         <li><a href="#" class="nav-link px-2 link-dark">구직게시판</a></li>
         <li class="nav-item dropdown">
         	<a class="nav-link dropdown-toggle link-dark" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">

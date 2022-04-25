@@ -1,62 +1,41 @@
 package board;
 
 public class BoardDTO {
-	private String bid;
-	private String btitle;
-	private String bcon;
-	private String buser;
-	private String bdate;
-	private String bimg;
+	private String fid;
+	private String ftitle;
+	private String fcon;
+	private String fuser;
+	private String fdate;
+	private String fimg;
+	public String getFid() {
+		return fid;
+	}
+	public String getFtitle() {
+		return ftitle;
+	}
+	public String getFcon() {
+		return fcon;
+	}
+	public String getFuser() {
+		return fuser;
+	}
+	public String getFdate() {
+		return fdate;
+	}
+	public String getFimg() {
+		return fimg;
+	}
+	public BoardDTO(String fid, String ftitle, String fcon, String fuser, String fdate, String fimg) {
+		super();
+		this.fid = fid;
+		this.ftitle = ftitle;
+		this.fcon = fcon;
+		this.fuser = fuser;
+		this.fdate = fdate;
+		this.fimg = fimg;
+	}
 	
-	public String getBimg() {
-		return bimg;
-	}
-	public void setBimg(String bimg) {
-		this.bimg = bimg;
-	}
-	public String getBid() {
-		return bid;
-	}
-	public void setBid(String bid) {
-		this.bid = bid;
-	}
-	public String getBtitle() {
-		return btitle;
-	}
-	public void setBtitle(String btitle) {
-		this.btitle = btitle;
-	}
-	public String getBcon() {
-		return bcon;
-	}
-	public void setBcon(String bcon) {
-		this.bcon = bcon;
-	}
-	public String getBuser() {
-		return buser;
-	}
-	public void setBuser(String buser) {
-		this.buser = buser;
-	}
-	public String getBdate() {
-		return bdate;
-	}
-	public void setBdate(String bdate) {
-		this.bdate = bdate;
-	}
-
-	public BoardDTO(String bid, String btitle, String bcon, String buser, String bdate, String bimg) {
-		super();
-		this.bid = bid;
-		this.btitle = btitle;
-		this.bcon = bcon;
-		this.buser = buser;
-		this.bdate = bdate;
-		this.bimg = bimg;
-	}
-	public BoardDTO() {
-		super();
-	}
+	
 	
 	
 

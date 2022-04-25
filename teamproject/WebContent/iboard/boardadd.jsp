@@ -16,24 +16,24 @@
 			<div class="form-group row">
 				<label class="col-sm-2">게시물 제목</label>
 				<div class="clo-sm-3">
-					<input type="text" name="btitle" class="form-control">
+					<input type="text" name="ftitle" class="form-control">
 				</div>
 			</div>			
 			<div class="form-group row">
 				<label class="col-sm-2">게시물 내용</label>
 				<div class="clo-sm-3">
-					<textarea name="bcon" clos="50" rows="8" class="form-control"></textarea>
+					<textarea name="fcon" clos="50" rows="8" class="form-control"></textarea>
 				</div>
 			</div>
 									
 			<div class="mb-3">
 				<label for="formFileSm" class="form-label">사진</label> 
-				<input name="bimgs" class="form-control form-control-sm" id="formFileSm" type="file">
+				<input name="fimgs" class="form-control form-control-sm" id="formFileSm" type="file">
 			</div>
 
 			<div class="form-group row" align="center">
 			<div class="clo-sm-10">
-				<input type="submit" name="bimgs" class="btn btn-primary" value="등록">
+				<input type="submit" name="fimgs" class="btn btn-primary" value="등록">
 				<input type="reset"  class="btn btn-danger" value="취소" >
 			</div>
 			</div>
