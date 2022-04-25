@@ -1,4 +1,4 @@
-<%@page import="jdbc.AdminDAO"%>
+<%@page import="jdbcs.AdminDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%

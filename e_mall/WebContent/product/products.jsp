@@ -1,8 +1,8 @@
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@page import="jdbc.*"%>
-<jsp:useBean id="productDAO" class ="jdbc.ProductDAO" scope="session" />
+<%@page import="jdbcs.*"%>
+<jsp:useBean id="productDAO" class ="jdbcs.ProductDAO" scope="session" />
 <!DOCTYPE html>
 <html>
 <head>

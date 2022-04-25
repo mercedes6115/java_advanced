@@ -4,7 +4,7 @@
 <%@ page import = "org.apache.commons.fileupload.*" %>
 <%@ page import = "org.apache.commons.fileupload.disk.*" %>
 <%@ page import = "org.apache.commons.fileupload.servlet.*" %>
-<%@ page import = "jdbc.*" %>
+<%@ page import = "jdbcs.*" %>
 <%@ page import = "util.*" %>
 <% request.setCharacterEncoding("utf-8");
 

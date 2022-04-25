@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import = "java.util.*" %>
-<%@ page import = "jdbc.*" %>  
+<%@ page import = "jdbcs.*" %>  
 <%request.setCharacterEncoding("utf-8");%> 
 <jsp:useBeans id="user" class="jdbc.UserDTO" scope="page" />   
 <jsp:setProperty property ="*" name="user"/>    

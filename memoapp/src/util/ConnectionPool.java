@@ -11,7 +11,7 @@ public class ConnectionPool {
 	public static Connection get() throws NamingException, SQLException {
 		if (_ds == null) {
 			_ds = (DataSource) (new InitialContext()).lookup(
-					"java:comp/env/jdbc/ifu");
+					"java:comp/env/jdbc/memoapp");
 		}
 		return _ds.getConnection();	
 	}

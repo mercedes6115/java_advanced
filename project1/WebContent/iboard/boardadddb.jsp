@@ -4,7 +4,7 @@
 <%@ page import = "org.apache.commons.fileupload.disk.*" %>
 <%@ page import = "org.apache.commons.fileupload.servlet.*" %>
 <%@ page import = "java.util.*" %>
-<%@ page import = "jdbc.*" %>
+<%@ page import = "jdbcs.*" %>
 <%@ page import = "util.FileUtil" %>
 
 

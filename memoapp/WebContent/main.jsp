@@ -1,10 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%@page import="jdbcs.*" %>
+<%@page import="java.util.ArrayList" %>
+<%@page import="java.sql.ResultSet" %>
+<%@page import="java.util.ArrayList" %>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>MemoApp</title>
+<meta name=viewport content="width=device-width, initial-scale=1, user-scalabble=0">
 </head>
 <body>
 	<!-- CSS only -->
@@ -14,6 +21,26 @@
 		integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
 		crossorigin="anonymous">
 	<div class="container bg-light shadow mx-auto mt-5 p-5 w-55">	
+	<div style="float:left;width:66%;">
+	<h1>Personal Memo Writing Application</h1>
+	</div>
+	<div style="float:right;width:34%;">
+  
+   	<div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+  	<button type="button" class="btn btn-primary">메모보기</button>
+  	<button type="button" class="btn btn-primary">2</button>
+
+  	<div class="btn-group" role="group">
+    <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+      Dropdown
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+    <li><a class="dropdown-item" href="#">Dropdown link</a></li>
+    <li><a href ="memodellist.jsp"  type="button" class="btn-btn-danger">삭제한 메모들 보기</a></li>
+    </ul>
+  	</div>
+	</div>
+	</div>
 
 	<form action="memoadddb.jsp" method="post">
 	<div class="input-group mb-3">
@@ -25,29 +52,66 @@
   	<input type="submit" value="등록">
   	</form>
   	<br>
+  	<br>
+  	<br>
+		<% 
+
+			ArrayList<MemoAppDTO> memos =(new MemoAppDAO()).getList();
+			for(MemoAppDTO memo :memos){
+		%>	
 	<div class="card">
   	<div class="card-header">
     Personal MemoApp
   	</div>
   	<div class="card-body">
-    <h5 class="card-title">Things to do</h5>
-    <p class="card-text">Write things you should do today</p>
-	<p class="card-text">Writing Time</p>
-	<div class="form-check form-switch">
-  	<input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
-  	<label class="form-check-label" for="flexSwitchCheckChecked">Check if you're done</label>
+    <h5 class="card-title"><%=memo.getMtitle()%></h5>
+    <p class="card-text"><%=memo.getMcon()%></p>
+	<p class="card-text"><%=memo.getMdate()%></p>
+  	<a href ="memodel.jsp?mid=<%=memo.getMid()%>">delete</a>
+  	<div align="right">
+  	<button  type="button" onclick="sendRequest()">댓글달기</button>
+  	<p id="text"></p>
+  	</div>
 	</div>
   	</div>
-	</div>		
-</div>	
-
-	
-	
-	
+  	<%
+			}
+  	%>
+	</div>			
+</div>		
 	<!-- JavaScript Bundle with Popper -->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-		crossorigin="anonymous"></script>
+		crossorigin="anonymous">
+	</script>
+	
+<script>
+function sendRequest(){
+	var httpRequest = new XMLHttpRequest();
+
+	/* GET 방식 */
+	/*
+	httpRequest.open("GET", "request_ajax.jsp?city=Seoul&zipcode=88855", true);
+	httpRequest.send();
+	*/
+	
+	/* POST 방식 */
+	httpRequest.open("POST", "request_ajax.jsp", true);
+	//encoding은 암호화
+	httpRequest.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	//send메소드에 인수 전달
+	httpRequest.send("city=Seoul&zipcode=55775");
+	
+	httpRequest.onreadystatechange = function(){
+		// 요청과 응답에 성공했을 때
+		if(httpRequest.readyState == XMLHttpRequest.DONE && httpRequest.status == 200){
+			// 응답 값을 받아온다.
+			document.getElementById("text").innerHTML = httpRequest.responseText;
+		}
+	}
+}
+
+</script>
 </body>
 </html>
