@@ -92,6 +92,36 @@ public class UserDAO {
 			if(conn != null) conn.close();
 		}		
 	}
-	
+
+	 public int delete(String userid,String userpw) throws NamingException, SQLException{
+			Connection conn = null;
+			PreparedStatement pstmt = null;
+			int result=-1;
+			
+			try {
+				String sql = "DELETE FROM user WHERE userid = ? AND userpw = ?";
+				conn = ConnectionPool.get();
+				pstmt = conn.prepareStatement(sql);
+					pstmt.setString(1, userid);
+					pstmt.setString(2, userpw);
+					result = pstmt.executeUpdate();
+				if(!userid.equals(rset.getString("userid"))) {
+					result=1;
+					
+				}else if(!userpw.equals(rset.getString("userpw"))) {
+					result=2;
+				}else {
+					result=3;
+				}
+				
+				return result;
+							
+				
+			} finally {
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+			}
+			
+		}
 
 }

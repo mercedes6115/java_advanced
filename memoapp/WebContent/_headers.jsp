@@ -16,7 +16,7 @@
     <li><a href ="userjoin.jsp"  type="button" class="btn-btn-danger">회원가입</a></li>
     <li><a href ="userlogin.jsp"  type="button" class="btn-btn-danger">로그인</a></li>
     <li><a href ="userlogout.jsp"  type="button" class="btn-btn-danger">로그아웃</a></li>
-    <li><a href ="memodellist.jsp"  type="button" class="btn-btn-danger">삭제한 메모들 보기</a></li>
+    <li><a href ="userdrop.jsp"  type="button" class="btn-btn-danger">회원탈퇴</a></li>
     </ul>
   	</div>
 	</div>
