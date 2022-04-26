@@ -24,23 +24,7 @@
 	<div style="float:left;width:66%;">
 	<h1>Personal Memo Writing Application</h1>
 	</div>
-	<div style="float:right;width:34%;">
-  
-   	<div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-  	<button type="button" class="btn btn-primary">메모보기</button>
-  	<button type="button" class="btn btn-primary">2</button>
-
-  	<div class="btn-group" role="group">
-    <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-      Dropdown
-    </button>
-    <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-    <li><a class="dropdown-item" href="#">Dropdown link</a></li>
-    <li><a href ="memodellist.jsp"  type="button" class="btn-btn-danger">삭제한 메모들 보기</a></li>
-    </ul>
-  	</div>
-	</div>
-	</div>
+	<%@ include file ="_headers.jsp" %>
 
 	<form action="memoadddb.jsp" method="post">
 	<div class="input-group mb-3">
