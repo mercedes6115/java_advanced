@@ -152,7 +152,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="map_test" path="/map_test" reloadable="true" source="org.eclipse.jst.jee.server:map_test"/><Context docBase="emall" path="/emall" reloadable="true" source="org.eclipse.jst.jee.server:emall"/><Context docBase="team_infou1" path="/team_infou1" reloadable="true" source="org.eclipse.jst.jee.server:team_infou1"/><Context docBase="test1" path="/test1" reloadable="true" source="org.eclipse.jst.jee.server:test1"/><Context docBase="memoapp" path="/memoapp" reloadable="true" source="org.eclipse.jst.jee.server:memoapp"/></Host>
+      <Context docBase="map_test" path="/map_test" reloadable="true" source="org.eclipse.jst.jee.server:map_test"/><Context docBase="emall" path="/emall" reloadable="true" source="org.eclipse.jst.jee.server:emall"/><Context docBase="team_infou1" path="/team_infou1" reloadable="true" source="org.eclipse.jst.jee.server:team_infou1"/><Context docBase="test1" path="/test1" reloadable="true" source="org.eclipse.jst.jee.server:test1"/><Context docBase="memoapp" path="/" reloadable="true" source="org.eclipse.jst.jee.server:memoapp"/></Host>
     </Engine>
   </Service>
 </Server>
