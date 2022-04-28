@@ -39,7 +39,6 @@
   	<br>
   	<br>
 		<% 
-
 			ArrayList<MemoAppDTO> memos =(new MemoAppDAO()).getList();
 			for(MemoAppDTO memo :memos){
 		%>	
@@ -85,8 +84,13 @@ function sendRequest(){
 	//encoding은 암호화
 	httpRequest.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	//send메소드에 인수 전달
-	httpRequest.send("city=Seoul&zipcode=55775");
-	
+
+	<form action = "commentadd.jsp" method="post">
+	<div class="input-group mb-3">
+  	<input type="text" name="mcon" class="form-control" placeholder="Write a short comment">
+  	</div>
+  	<button>댓글등록</button>
+  	</form>
 	httpRequest.onreadystatechange = function(){
 		// 요청과 응답에 성공했을 때
 		if(httpRequest.readyState == XMLHttpRequest.DONE && httpRequest.status == 200){

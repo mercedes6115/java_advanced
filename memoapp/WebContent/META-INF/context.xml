@@ -4,9 +4,9 @@
 		auth="Container"
 		type="javax.sql.DataSource"
 		driverClassName="com.mysql.jdbc.Driver"
-		url="jdbc:mysql://localhost:3306/memoapp?serverTimezone=UTC"
-		username="root"
-		password="a489348a!"
+		url="jdbc:mysql://bp6115.cafe24.com:3306/bp6115?serverTimezone=UTC"
+		username="bp6115"
+		password="a489348a!!"
 		maxTotal="16"
 		maxIdle="4"
 		maxWaitMillis="-1" />

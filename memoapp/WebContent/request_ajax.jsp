@@ -17,11 +17,6 @@
 	out.println("도시: " + city);
 	out.println("우편주소: " + zipcode);
 %>
-	<form action = "commentadd.jsp" method="post">
-	<div class="input-group mb-3">
-  	<input type="text" name="mcon" class="form-control" placeholder="Write a short comment">
-  	</div>
-  	<button>댓글등록</button>
-  	</form>
+	
 </body>
 </html>

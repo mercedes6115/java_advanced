@@ -1,0 +1,83 @@
+이메일 발송
+
+이메일 작성 -> 처리.jsp -> 네이버 SMTP서버 -> 인터넷 
+
+1. 네이버 smtp 설정
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>회원 등록</title>
+</head>
+<body>
+	<%!// 선언문
+	String title = "Email Send";%>
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<div class="container bg-light shadow mx-auto mt-5 p-5 w-55">	
+<div class="container">
+	<div class="alert alert-info" role="alert">
+		<div class="container">
+			<h1 class="display-3">
+				<%=title%>
+			</h1>
+		</div>
+	</div>
+	</div>
+
+
+		<form action="emailsend.jsp" method="post">
+			<div class="form-group row">
+				<label class="col-sm-2">보내는 사람</label>				
+				<div class="col-sm-3">
+				<input type="text" name="from" class="form-control" >
+				</div>
+				<br>
+				받는사람			
+				<div class="col-sm-3">
+				<input type="text" name="to" class="form-control" >
+				</div>
+				<br>
+				제목			
+				<div class="col-sm-3">
+				<input type="text" name="subject" class="form-control" >
+				</div>
+				<br>
+				<label class="col-sm-2">형식</label>				
+				<div class="col-sm-3">
+				<input type="radio" name="format" class="form-control" value="text" checked>TEXT
+				</div>
+				<br>
+				<div class="col-sm-3">
+				<input type="radio" name="format" class="form-control" value="html" checked>HTML
+				</div>
+				<br>
+				<label class="col-sm-2">본문</label>
+				<div class="col-sm-3">
+				<input type="textarea" name="content" cols ="60" rows="10">
+				</div>
+				
+				
+				
+	<div class="col-sm-6">
+					<input type="submit" class="btn btn-primary" value="전송"> 
+					<input type="reset" class="btn btn-danger" value="취소">
+	</div>
+	</form>
+
+
+	</div>	
+
+	<!-- JavaScript Bundle with Popper -->
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+		crossorigin="anonymous"></script>
+
+
+</script>
+
+</body>
+</html>
